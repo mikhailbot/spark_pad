@@ -48,11 +48,11 @@ defmodule SparkPad.IdeasTest do
       assert {:error, %Ecto.Changeset{}} = Ideas.update_spark(spark, @invalid_attrs)
     end
 
-    test "get_spark/2 returns the spark with given id" do
+    test "get_spark!/1 returns the spark with given id" do
       user = user_fixture()
       spark = spark_fixture(%{owner_id: user.id})
 
-      assert Ideas.get_spark(spark.id) == spark
+      assert Ideas.get_spark!(spark.id) == spark
     end
 
     test "delete_spark/1 deletes the spark" do

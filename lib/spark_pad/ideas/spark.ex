@@ -10,12 +10,14 @@ defmodule SparkPad.Ideas.Spark do
     timestamps()
   end
 
+  @doc false
   def create_changeset(spark, attrs) do
     spark
     |> cast(attrs, [:name, :owner_id])
     |> validate_required([:name, :owner_id])
   end
 
+  @doc false
   def update_changeset(spark, attrs) do
     spark
     |> cast(attrs, [:name])
