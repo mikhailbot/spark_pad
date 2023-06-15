@@ -4,15 +4,27 @@ defmodule SparkPad.IdeasFixtures do
   entities via the `SparkPad.Ideas` context.
   """
 
+  def valid_spark_attributes(attrs \\ %{}) do
+    Enum.into(attrs, %{
+      name: "some spark",
+      owner_id: nil
+    })
+  end
+
+  def invalid_spark_attributes(attrs \\ %{}) do
+    Enum.into(attrs, %{
+      name: nil,
+      owner_id: nil
+    })
+  end
+
   @doc """
   Generate a spark
   """
   def spark_fixture(attrs \\ %{}) do
     {:ok, spark} =
       attrs
-      |> Enum.into(%{
-        name: "some idea"
-      })
+      |> valid_spark_attributes()
       |> SparkPad.Ideas.create_spark()
 
     spark
