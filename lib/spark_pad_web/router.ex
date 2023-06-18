@@ -18,11 +18,17 @@ defmodule SparkPadWeb.Router do
   end
 
   scope "/", SparkPadWeb do
+    pipe_through :browser
+
+    get "/", PageController, :home
+  end
+
+  scope "/", SparkPadWeb do
     pipe_through [:browser, :require_authenticated_user]
 
     live_session :registered_users_only,
       on_mount: [{SparkPadWeb.UserAuth, :ensure_authenticated}] do
-      live "/", Sparks.Create
+      live "/sparks/new", Sparks.New
       live "/sparks", Sparks.List
       live "/sparks/:spark_id", Sparks.Show
     end

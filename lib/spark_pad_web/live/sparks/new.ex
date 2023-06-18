@@ -1,13 +1,15 @@
-defmodule SparkPadWeb.Sparks.Create do
+defmodule SparkPadWeb.Sparks.New do
   use SparkPadWeb, :live_view
 
   alias SparkPad.Ideas
   alias SparkPad.Ideas.Spark
 
+  on_mount {SparkPadWeb.UserAuth, :ensure_authenticated}
+
   def mount(_params, _session, socket) do
     spark_create_changeset = Ideas.create_spark_changeset(%Spark{})
 
-    socket = socket |> assign(:create_spark_form, to_form(spark_create_changeset))
+    socket = socket |> assign(:new_spark_form, to_form(spark_create_changeset))
 
     {:ok, socket}
   end
@@ -25,7 +27,7 @@ defmodule SparkPadWeb.Sparks.Create do
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply,
          socket
-         |> assign(create_spark_form: to_form(changeset))
+         |> assign(new_spark_form: to_form(changeset))
          |> put_flash(:error, "Spark was invalid, please try again")}
 
       {:error, _} ->

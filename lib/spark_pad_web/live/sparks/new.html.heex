@@ -1,10 +1,10 @@
 <.simple_form
-  for={@create_spark_form}
-  id="create_spark_form"
+  for={@new_spark_form}
+  id="new_spark_form"
   phx-update="ignore"
   phx-submit="create_spark"
 >
-  <.input field={@create_spark_form[:name]} type="text" aria-label="Name" />
+  <.input field={@new_spark_form[:name]} type="text" aria-label="Name" />
   <:actions>
     <.button phx-disable-with="Creating..." class="w-full">
       Create Spark <span aria-hidden="true">→</span>
