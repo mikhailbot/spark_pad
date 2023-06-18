@@ -27,6 +27,10 @@ defmodule SparkPad.Ideas do
     %Spark{} |> Spark.create_changeset(attrs) |> Repo.insert()
   end
 
+  def create_spark_changeset(spark, attrs \\ %{}) do
+    Spark.create_changeset(spark, attrs)
+  end
+
   @doc """
   Gets a single Spark.
 

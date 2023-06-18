@@ -1,0 +1,62 @@
+<.header class="text-center">
+  <%= @spark.name %>
+</.header>
+
+<section class="mb-8">
+  <div class="my-6 grid grid-cols-3 gap-x-2">
+    <.button class="text-xs py-1 px-2 hover:bg-zinc-600" aria-label="Add note">
+      <.icon name="hero-pencil-square" />
+    </.button>
+    <.button class="text-xs py-1 px-2 hover:bg-zinc-600" aria-label="Add link">
+      <.icon name="hero-link" />
+    </.button>
+    <.button class="text-xs py-1 px-2 hover:bg-zinc-600" aria-label="Add tag">
+      <.icon name="hero-tag" />
+    </.button>
+  </div>
+</section>
+
+<section class="my-8">
+  <div>
+    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
+      <.icon name="hero-tag-solid" class="h-3 w-3 fill-green-500" /> ESP32
+    </span>
+    <span class="inline-flex items-center gap-x-1.5 rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-700">
+      <.icon name="hero-tag-solid" class="h-3 w-3 fill-red-500" /> Hardware
+    </span>
+  </div>
+</section>
+
+<section class="my-8">
+  <h3 class="text-xl font-semibold border-b-2 border-zinc-700">Links</h3>
+  <div class="py-4">
+    <p class="text-sm font-black font-mono text-zinc-700">2023-05-15</p>
+    <a href="#" class="hover:text-sky-700">Outerspace Demo video <.icon name="hero-link" /></a>
+  </div>
+  <div class="py-4">
+    <p class="text-sm font-black font-mono text-zinc-700">2023-05-15</p>
+    <a href="#" class="hover:text-sky-700">
+      Dietary needs for astronaut <.icon name="hero-link" />
+    </a>
+  </div>
+</section>
+
+<section class="my-8">
+  <h3 class="text-xl font-semibold border-b-2 border-zinc-700">Notes</h3>
+  <div class="py-4">
+    <p class="text-sm font-black font-mono text-zinc-700">2023-05-18</p>
+    <article class="prose">
+      <p>
+        Imagine a revolutionary fitness app that takes your fitness journey to the outer reaches of space. This personalized fitness app is designed to cater to individuals who aspire to achieve their fitness goals while embracing an outer space theme. The target audience includes space enthusiasts, sci-fi lovers, and anyone seeking a unique and engaging fitness experience.
+      </p>
+    </article>
+  </div>
+  <div class="py-4">
+    <p class="text-sm font-black font-mono text-zinc-700">2023-05-15</p>
+    <article class="prose">
+      <p>
+        The app integrates seamlessly with wearable devices, allowing you to track your progress and receive real-time feedback as you embark on your fitness quests. Whether you're running on a treadmill or cycling through space-themed landscapes, your wearable device will keep you connected to your cosmic fitness journey, providing valuable insights and motivating you to push your limits.
+      </p>
+    </article>
+  </div>
+</section>

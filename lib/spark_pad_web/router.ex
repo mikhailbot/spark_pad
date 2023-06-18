@@ -18,15 +18,15 @@ defmodule SparkPadWeb.Router do
   end
 
   scope "/", SparkPadWeb do
-    pipe_through :browser
+    pipe_through [:browser, :require_authenticated_user]
 
-    get "/", PageController, :home
+    live_session :registered_users_only,
+      on_mount: [{SparkPadWeb.UserAuth, :ensure_authenticated}] do
+      live "/", Sparks.Create
+      live "/sparks", Sparks.List
+      live "/sparks/:spark_id", Sparks.Show
+    end
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", SparkPadWeb do
-  #   pipe_through :api
-  # end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:spark_pad, :dev_routes) do
